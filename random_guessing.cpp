@@ -11,20 +11,21 @@
 
 int main() {
     // This lets user guess a number
+    int answer;
+    int guessNumber;
 
     std::random_device rseed;
     std::mt19937 rgen(rseed());  // mersenne_twister
     std::uniform_int_distribution<int> idist(1, 9);  // [1,9]
 
-    const int ANSWER = idist(rgen);
-    int guessNumber;
+    answer = idist(rgen);
 
     // input
     std::cout << "Enter a number between 1-9 : ";
     std::cin >> guessNumber;
 
     // process and output
-    if (guessNumber == ANSWER) {
+    if (guessNumber == answer) {
         std::cout << "You guessed correctly!";
     } else {
         std::cout << "You guessed wrong!";
@@ -32,7 +33,7 @@ int main() {
 
 
     std::cout << "" << std::endl;
-    std::cout << "The correct answer is " << ANSWER <<std::endl;
+    std::cout << "The correct answer is " << answer <<std::endl;
     std::cout << "" << std::endl;
     std::cout << "Done." << std::endl;
 }
